@@ -2,9 +2,11 @@ package study.algorithm;
 
 import study.algorithm.programmers.*;
 
+import java.util.Optional;
+
 
 public class start {
     public static void main(String[] args) {
-        System.out.println(new P0045().solution2("3people  Unfollowed Me"));
+        P0047.start();
     }
 }
