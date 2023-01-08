@@ -2,6 +2,7 @@ package study.algorithm.programmers;
 
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.LongStream;
 
 public class P0025 {
     public static int[] solution(int[] numbers) {
@@ -11,7 +12,12 @@ public class P0025 {
                 set.add(numbers[i] + numbers[j]);
             }
         }
-        return set.stream().distinct().mapToInt(i -> i).toArray();
+        int i = 0;
+        int[] answer = new int[set.size()];
+        for (Integer integer : set) {
+            answer[i++] = integer;
+        }
+        return answer;
     }
 
 }

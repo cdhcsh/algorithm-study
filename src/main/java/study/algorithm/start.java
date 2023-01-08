@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class start {
     public static void main(String[] args) {
-        P0052.start();
+        new P0055().solution(3,new String[]{"tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"});
     }
     public static void test(Integer i){
         i+=1;

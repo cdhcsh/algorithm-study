@@ -2,6 +2,7 @@ package study.algorithm.programmers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class P0032 {
@@ -21,9 +22,7 @@ public class P0032 {
             int n = commands[i][0];
             int m = commands[i][1];
             int k = commands[i][2];
-            List<Integer> sub = new ArrayList<>(list.subList(n - 1, m));
-            sub.sort(Integer::compareTo);
-            answer[i] = sub.get(k - 1);
+            answer[i] = list.subList(n - 1, m).stream().sorted().mapToInt(num->num).toArray()[k-1];
         }
 
         return answer;
