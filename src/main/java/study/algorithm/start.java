@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public class start {
     public static void main(String[] args) {
-        P0057 s = new P0057();
-        System.out.println(s.solution(437674,3));
+        System.out.println(new P0061().solution(6));
     }
 }
