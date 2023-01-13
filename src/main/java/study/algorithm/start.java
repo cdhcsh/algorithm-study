@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public class start {
     public static void main(String[] args) {
-        System.out.println(new P0065().solution(15));
+        new P0067().solution(4);
     }
 }
