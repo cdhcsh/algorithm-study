@@ -8,6 +8,18 @@ import java.util.Optional;
 
 public class start {
     public static void main(String[] args) {
-        new P0067().solution(4);
+        int n = 20;
+        int p = 1;
+        int s = 0;
+        int[] solution = new P0067().solution(n);
+        for(int i = 0 ; i < solution.length ; i++){
+            System.out.printf("%4d ",solution[i]);
+            s++;
+            if(s%p==0){
+                p++;
+                s=0;
+                System.out.println();
+            }
+        }
     }
 }
