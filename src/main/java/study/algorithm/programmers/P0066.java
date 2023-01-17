@@ -24,5 +24,16 @@ public class P0066 {
         return answer;
 
     }
+    public int[] test(String s){
+        HashMap<Integer,Integer> map = new HashMap<>();
+        String tmp = s.replace("{","").replace("}","");
+        Arrays.stream(tmp.split(","))
+                .mapToInt(Integer::parseInt)
+                .forEach(i -> map.put(i,map.getOrDefault(i,0)+1));
+        return map.keySet().stream()
+                .sorted((i,j) -> map.get(j).compareTo(map.get(i)))
+                .mapToInt(i->i)
+                .toArray();
+    }
 
 }
