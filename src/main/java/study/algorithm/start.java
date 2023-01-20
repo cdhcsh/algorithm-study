@@ -8,9 +8,10 @@ import java.util.Optional;
 
 public class start {
     public static void main(String[] args) {
-//        System.out.println(new P0074().solution(80,
-//                new int[][]{{80,20},{50,40},{30,10}}));
-        System.out.println(Arrays.toString(new P0075().solution(187052345l, 187062345l)));
 
+        System.out.println(Arrays.toString(new P0078().solution(
+                new int[][]{{40, 10000}, {25, 10000}},
+                new int[]{7000, 9000}
+        )));
     }
 }
