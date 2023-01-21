@@ -1,4 +1,9 @@
 package study.algorithm.programmers;
+
+/**
+ * 게임 맵 최단 거리
+ */
+
 import java.util.LinkedList;
 import java.util.Queue;
 public class P0037{

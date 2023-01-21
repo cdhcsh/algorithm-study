@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 콜라 장수
+ */
+
 public class P0009 {
     public static int solution(int a, int b, int n) {
         int answer = 0;

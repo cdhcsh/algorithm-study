@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 올바른 괄호
+ */
+
 import java.util.Stack;
 
 class P0041 {

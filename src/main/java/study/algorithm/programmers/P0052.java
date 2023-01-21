@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 혼자놀기의 달인
+ */
+
 import java.util.Arrays;
 
 public class P0052 {

@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * k진수에서 소수 갯수 구하기
+ */
+
 public class P0057 {
     public int solution(int n, int k) {
         // n <= 1000000, 3<=k<=10

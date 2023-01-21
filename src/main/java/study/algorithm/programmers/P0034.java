@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * [1차] 다트게임
+ */
+
 import java.util.Arrays;
 
 public class P0034 {

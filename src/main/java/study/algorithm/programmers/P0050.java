@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 연속 부분 수열 합의 갯수
+ */
+
 import java.util.HashSet;
 import java.util.Set;
 

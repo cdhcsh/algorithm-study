@@ -1,6 +1,8 @@
 package study.algorithm.programmers;
 
-import java.util.Arrays;
+/**
+ * 택배 배달과 수거하기
+ */
 
 public class P0077 {
     public long solution(int cap,int n,int[] deliveries,int[] pickups){

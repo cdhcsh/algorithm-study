@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 줄 서는 방법
+ */
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

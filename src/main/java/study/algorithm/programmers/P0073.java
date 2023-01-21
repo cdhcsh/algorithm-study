@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 하노이의 탑
+ */
+
 public class P0073 {
         int[][] answer;
         int[] d;

@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 단체사진 찍기
+ */
+
 public class P0036 {
     String[] data;
     char[] chars;

@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 영어 끝말잇기
+ */
+
 import java.util.ArrayList;
 
 public class P0055 {

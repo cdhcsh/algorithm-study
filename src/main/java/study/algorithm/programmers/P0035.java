@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 카카오프렌즈 컬러링북
+ */
+
 import java.util.Arrays;
 
 public class P0035 {

@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 최대값과 최솟값
+ */
+
 import java.util.Arrays;
 
 public class P0069 {

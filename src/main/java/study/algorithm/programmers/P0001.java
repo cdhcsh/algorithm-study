@@ -1,7 +1,8 @@
 package study.algorithm.programmers;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+/**
+ * 가장 가까운 문자의 위치
+ */
 
 public class P0001 {
     static int[] solution(String s) {

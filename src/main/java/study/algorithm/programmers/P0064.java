@@ -1,6 +1,8 @@
 package study.algorithm.programmers;
 
-import java.util.Arrays;
+/**
+ * 정수 제곱근 판별
+ */
 
 public class P0064 {
     public long solution(long n) {

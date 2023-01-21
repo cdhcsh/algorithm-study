@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 기사단원의 무기
+ */
+
 public class P0004 {
     public static int solution(int number, int limit, int power) {
         int answer = 0;

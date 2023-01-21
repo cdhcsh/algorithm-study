@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 마법의 엘리베이터
+ */
+
 public class P0043 {
     public static void start(){
         P0043 obj = new P0043();

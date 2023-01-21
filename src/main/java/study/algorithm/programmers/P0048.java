@@ -1,6 +1,8 @@
 package study.algorithm.programmers;
 
-
+/**
+ * 거리두기 확인하기
+ */
 
 public class P0048 {
     char[][] map; // 대기실

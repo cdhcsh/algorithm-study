@@ -1,6 +1,9 @@
 package study.algorithm.programmers;
 
-import java.util.Arrays;
+/**
+ * 실패율
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

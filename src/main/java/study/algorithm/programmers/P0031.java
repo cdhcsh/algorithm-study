@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 모의고사
+ */
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;

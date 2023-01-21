@@ -1,6 +1,8 @@
 package study.algorithm.programmers;
 
-import java.util.Arrays;
+/**
+ * 삼가갈팽이
+ */
 
 public class P0067 {
     public int[] solution(int n) {

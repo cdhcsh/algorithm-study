@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 모음사전
+ */
+
 import java.util.HashMap;
 
 public class P0047 {

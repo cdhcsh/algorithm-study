@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 소수찾기
+ */
+
 public class P0054 {
     public int solution(int n) {
         int answer = 0;

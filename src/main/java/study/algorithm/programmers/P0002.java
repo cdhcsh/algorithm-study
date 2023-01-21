@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 문자열 나누기
+ */
+
 public class P0002 {
     public static int solution(String s){
         char[] chars = s.toCharArray();

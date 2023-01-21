@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 최소 직사각형
+ */
+
 import java.util.Arrays;
 
 public class P0015 {

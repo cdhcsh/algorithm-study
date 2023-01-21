@@ -1,8 +1,8 @@
 package study.algorithm.programmers;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
+/**
+ * 이모티노 할인 행사
+ */
 public class P0078 {
     public int[] solution(int[][] users, int[] emoticons) {
         int[] answer = new int[2];

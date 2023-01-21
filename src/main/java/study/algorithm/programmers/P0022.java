@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 신규 아이디 추천
+ */
+
 public class P0022 {
     public static String solution(String new_id) {
         String answer = new_id.toLowerCase();

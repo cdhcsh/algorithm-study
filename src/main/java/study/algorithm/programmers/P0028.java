@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 크기가 작은 부분 문자열
+ */
+
 public class P0028 {
     public static int solution(String t, String p) {
         int answer = 0;

@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 2*n 타일링
+ */
+
 public class P0039 {
     public int solution(int n) {
         int[] arr = new int[n];

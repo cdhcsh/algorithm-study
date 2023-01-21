@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 튜플
+ */
+
 import java.util.*;
 
 public class P0066 {

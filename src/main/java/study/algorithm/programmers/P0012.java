@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 성격 유형 검사
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

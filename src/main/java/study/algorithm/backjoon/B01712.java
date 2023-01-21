@@ -1,5 +1,9 @@
 package study.algorithm.backjoon;
 
+/**
+ * 손익 분기점
+ */
+
 import java.io.IOException;
 import java.util.Scanner;
 

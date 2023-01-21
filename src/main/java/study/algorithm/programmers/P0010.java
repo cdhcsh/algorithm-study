@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 삼총사
+ */
+
 public class P0010 {
     public static int solution(int[] number) {
         int answer = 0;

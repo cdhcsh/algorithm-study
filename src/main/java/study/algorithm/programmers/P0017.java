@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 부족한 금액 계산하기
+ */
+
 import java.util.stream.LongStream;
 
 public class P0017 {

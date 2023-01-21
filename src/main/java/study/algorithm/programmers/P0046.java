@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * N^2 배열 자르기
+ */
+
 import static java.lang.Math.max;
 
 

@@ -1,5 +1,8 @@
 package study.algorithm.programmers;
 
+/**
+ * 피로도
+ */
 public class P0074 {
     public int solution(int k, int[][] dungeons) {
         int[] visit = new int[dungeons.length];

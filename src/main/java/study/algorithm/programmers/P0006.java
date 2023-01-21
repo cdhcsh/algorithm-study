@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 푸드 파이트 대회
+ */
+
 import java.util.ArrayList;
 import java.util.Vector;
 

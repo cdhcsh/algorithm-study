@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 체육복
+ */
+
 public class P0030 {
     public static void start() {
         P0030 obj = new P0030();

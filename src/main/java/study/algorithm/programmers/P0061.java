@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 콜라츠 추측
+ */
+
 public class P0061 {
     public int solution(int num) {
         int answer = 0;

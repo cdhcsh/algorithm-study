@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 택배상자
+ */
+
 public class P0051 {
     public static void start(){
         int[] order = {2, 1, 4, 3, 6, 5, 8, 7, 10, 9};

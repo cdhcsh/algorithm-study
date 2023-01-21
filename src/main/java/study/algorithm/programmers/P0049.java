@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 귤 고르기
+ */
+
 import java.util.HashMap;
 
 public class P0049 {

@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 없는 숫자 더하기
+ */
+
 import java.util.Arrays;
 
 public class P0016 {

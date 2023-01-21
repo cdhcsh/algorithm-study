@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 숫자 블럭
+ */
+
 public class P0075 {
     public int[] solution(long begin, long end) {
         int[] answer = new int[(int) (end-begin+1)];

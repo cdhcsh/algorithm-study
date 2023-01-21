@@ -1,7 +1,8 @@
 package study.algorithm.programmers;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+/**
+ * N-Queen
+ */
 
 public class P0072 {
     public int solution(int n) {

@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 약수의 갯수와 덧셈
+ */
+
 public class P0019 {
     public static int solution(int left, int right) {
         int answer = 0;

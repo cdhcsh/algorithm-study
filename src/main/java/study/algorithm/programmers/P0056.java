@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 주차 요금 계산
+ */
+
 import java.util.*;
 
 public class P0056 {

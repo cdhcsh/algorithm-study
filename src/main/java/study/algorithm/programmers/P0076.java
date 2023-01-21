@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 시소 짝꿍
+ */
+
 import java.util.HashMap;
 
 public class P0076 {

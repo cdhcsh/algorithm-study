@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 햄버거 만들기
+ */
+
 import java.util.Stack;
 
 public class P0007 {

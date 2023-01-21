@@ -1,9 +1,10 @@
 package study.algorithm.programmers;
 
-import java.util.Arrays;
-import java.util.Locale;
+/**
+ * JadenCase
+ */
+
 import java.util.StringTokenizer;
-import java.util.stream.Collectors;
 
 public class P0045 {
     public String solution(String s) {

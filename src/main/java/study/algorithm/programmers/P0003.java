@@ -1,5 +1,10 @@
 package study.algorithm.programmers;
 import java.util.*;
+
+/**
+ * 명예의 전당(1)
+ */
+
 public class P0003 {
     public static int[] solution(int k, int[] score) {
         int[] answer = new int[score.length];

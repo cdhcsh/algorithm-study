@@ -1,5 +1,9 @@
 package study.algorithm.backjoon;
 
+/**
+ * 벌집
+ */
+
 import java.io.IOException;
 import java.util.Scanner;
 

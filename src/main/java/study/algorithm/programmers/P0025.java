@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 두개 뽑아서 더하기
+ */
+
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.LongStream;

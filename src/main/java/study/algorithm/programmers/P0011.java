@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 숫자 짝꿍
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

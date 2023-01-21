@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 키패드 누르기
+ */
+
 public class P0026 {
     public static String solution(int[] numbers, String hand) {
         int l = 9, r = 11;

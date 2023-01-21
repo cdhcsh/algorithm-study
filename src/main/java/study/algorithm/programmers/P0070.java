@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 행렬의 곱셈
+ */
+
 public class P0070 {
 
     public int[][] solution(int[][] arr1, int[][] arr2) {

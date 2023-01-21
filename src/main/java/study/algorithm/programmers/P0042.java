@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 땅따먹기
+ */
+
 class P0042 {
     public int solution(int[][] land){
         for(int i = 1 ; i < land.length ; i++){

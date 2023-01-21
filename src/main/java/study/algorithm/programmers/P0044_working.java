@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 다펜스 게임
+ */
+
 import java.util.PriorityQueue;
 import java.util.Queue;
 

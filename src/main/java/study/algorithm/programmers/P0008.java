@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * 옹알이(2)
+ */
+
 public class P0008 {
         public static int solution(String[] babbling) {
             int answer = 0;

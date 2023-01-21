@@ -1,6 +1,9 @@
 package study.algorithm.programmers;
 
-import java.util.Arrays;
+/**
+ * 완주하지 못한 선수
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

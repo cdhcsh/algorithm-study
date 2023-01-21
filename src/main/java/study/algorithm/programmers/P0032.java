@@ -1,5 +1,9 @@
 package study.algorithm.programmers;
 
+/**
+ * k 번째수
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
