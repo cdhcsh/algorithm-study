@@ -1,28 +1,30 @@
-package study.algorithm;
+package study.algorithm.backjoon;
+
+/**
+ * 숫자 카드 2
+ */
 
 import java.io.*;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
-
-public class start {
+public class B10816 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
 
-        int[] target = new int[20000001];
+        HashMap<String, Integer> map = new HashMap<>();
         int length = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < length; i++) {
-            int n = Integer.parseInt(st.nextToken());
-            if(n<0) n = 10000000-n;
-            target[n] = 1;
+            String s = st.nextToken();
+            map.put(s, map.getOrDefault(s, 0) + 1);
         }
         length = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < length; i++) {
-            int n = Integer.parseInt(st.nextToken());
-            bw.write(target[n < 0 ? 10000000-n : n]+" ");
+            bw.write(map.getOrDefault(st.nextToken(), 0) + " ");
         }
         bw.close();
     }

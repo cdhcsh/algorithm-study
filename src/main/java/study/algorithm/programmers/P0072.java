@@ -5,6 +5,9 @@ package study.algorithm.programmers;
  */
 
 public class P0072 {
+    public static void main(String[] args) {
+        System.out.println(new P0072().solution(5));
+    }
     public int solution(int n) {
         int[] visit = new int[n];
         return dfs(0,n,visit);

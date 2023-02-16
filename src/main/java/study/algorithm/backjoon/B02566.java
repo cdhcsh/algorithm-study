@@ -7,7 +7,7 @@ package study.algorithm.backjoon;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class B2566 {
+public class B02566 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
