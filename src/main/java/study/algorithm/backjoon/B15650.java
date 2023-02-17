@@ -1,13 +1,13 @@
 package study.algorithm.backjoon;
 
 /**
- * N과 M(1)
+ * N과 M(2)
  */
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class B15649 {
+public class B15650 {
     static BufferedWriter bw = null;
     static int N;
     static int M;
@@ -33,7 +33,7 @@ public class B15649 {
             return;
         }
         for (int i = 1; i <= N; i++) {
-            if (visit[i - 1] == 0) {
+            if (visit[i - 1] == 0 && (n == 0 || answer[n-1] < i)) {
                 visit[i - 1] = 1;
                 answer[n] = i;
                 dfs(n + 1);
