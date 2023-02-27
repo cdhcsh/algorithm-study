@@ -1,45 +1,81 @@
 package study.algorithm.softeer;
 
 /**
- * [21년 재직자 대회 예선] 전광판
+ * 성적 평가
  */
 
+import java.util.*;
 import java.io.*;
-import java.util.StringTokenizer;
 
-public class S0002 {
-    public static void main(String[] args) throws IOException {
+
+public class S0002
+{
+    public static void main(String args[]) throws IOException
+    {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int[] switches = {Integer.parseInt("1110111", 2),// 0
-                Integer.parseInt("0100100", 2),// 1
-                Integer.parseInt("1011101", 2),// 2
-                Integer.parseInt("1101101", 2),// 3
-                Integer.parseInt("0101110", 2),// 4
-                Integer.parseInt("1101011", 2),// 5
-                Integer.parseInt("1111011", 2),// 6
-                Integer.parseInt("0100111", 2),// 7
-                Integer.parseInt("1111111", 2),// 8
-                Integer.parseInt("1101111", 2)// 9
-        };
-        int zero = 0;
-        int length = Integer.parseInt(br.readLine());
-        for (int i = 0; i < length; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            int answer = 0;
-            while (a>0 || b> 0){
-                int from = a > 0 ? switches[a%10] : zero;
-                int to = b > 0 ? switches[b%10] : zero;
-                answer+=Integer.bitCount(from^to);
-                a/=10;
-                b/=10;
-            }
-            bw.write(answer+"\n");
+        int n = Integer.parseInt(st.nextToken());
+        Pair[] finalScore = new Pair[n];
+        for(int i = 0 ; i < n ; i++){
+            finalScore[i] = new Pair(0,i);
         }
+        for(int i = 0 ; i < 3 ; i++){
+            st = new StringTokenizer(br.readLine());
+            Pair[] scores = new Pair[n];
+            for(int j = 0 ; j < n ; j++){
+                scores[j] = new Pair(Integer.parseInt(st.nextToken()),i);
+                finalScore[j].setScore(finalScore[j].getScore()+scores[j].getScore());
+            }
+            writeRanks(getRanks(scores),bw);
+            bw.write("\n");
+        }
+        writeRanks(getRanks(finalScore),bw);
+        bw.flush();
         bw.close();
+    }
+    static class Pair {
+        int score;
+        int num;
+        Pair(int score,int num){
+            this.score = score;
+            this.num = num;
+        }
+        int getScore(){
+            return score;
+        }
+        int getNum(){
+            return num;
+        }
+        void setScore(int score){
+            this.score = score;
+        }
+        void setNum(int num){
+            this.num = num;
+        }
+    }
+    static void swap(Pair[] arr, int idx1, int idx2) {
+        Pair temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+    }
+    static int[] getRanks(Pair[] scores){
+        int[] ranks = new int[scores.length];
+        Arrays.sort(scores,Comparator.comparingInt(Pair::getScore).reversed());
+        for(int i = 0 ; i < scores.length ; i++){
+            int rank = 1;
+            int score = scores[i].getScore();
+            for(int j = i-1 ; j >= 0 ; j--){
+                if(scores[j].getScore() > score) rank++;
+            }
+            ranks[scores[i].getNum()] = rank;
 
+        }
+        return ranks;
+    }
+    static void writeRanks(int[] ranks,BufferedWriter bw) throws IOException{
+        for(int rank : ranks)
+            bw.write(rank+" ");
     }
 }
