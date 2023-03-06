@@ -11,7 +11,7 @@ public class B15649 {
     static BufferedWriter bw = null;
     static int N;
     static int M;
-    static int[] visit;
+    static boolean[] visit;
     static int[] answer;
 
     public static void main(String[] args) throws IOException {
@@ -20,7 +20,7 @@ public class B15649 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        visit = new int[N];
+        visit = new boolean[N];
         answer = new int[M];
         dfs(0);
         bw.close();
@@ -33,11 +33,11 @@ public class B15649 {
             return;
         }
         for (int i = 1; i <= N; i++) {
-            if (visit[i - 1] == 0) {
-                visit[i - 1] = 1;
+            if (!visit[i - 1]) {
+                visit[i - 1] = true;
                 answer[n] = i;
                 dfs(n + 1);
-                visit[i - 1] = 0;
+                visit[i - 1] = false;
             }
         }
 
