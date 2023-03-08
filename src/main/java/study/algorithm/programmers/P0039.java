@@ -1,20 +1,24 @@
 package study.algorithm.programmers;
 
+import java.math.BigInteger;
+
 /**
  * 2*n 타일링
  */
 
 public class P0039 {
-    public int solution(int n) {
-        int[] arr = new int[n];
-        arr[0] = 1;
-        arr[1] = 2;
+    public static void main(String[] args) {
+        System.out.println(new P0039().solution(100));
+    }
+    public String solution(int n) {
+        BigInteger[] arr = new BigInteger[n];
+        arr[0] = new BigInteger("1");
+        arr[1] = new BigInteger("2");
 
         for (int i = 2; i < n; i++) {
-            int num = arr[i - 1] + arr[i - 2];
-            arr[i] = num % 1000000007;
+            arr[i] = arr[i-1].add(arr[i-2]);
         }
 
-        return arr[n-1];
+        return arr[n-1].toString();
     }
 }
