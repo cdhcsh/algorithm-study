@@ -17,19 +17,20 @@ public class B09663 {
     static int dfs(int x,int n,int[] visit){
         if(x==n) return 1;
         int cnt = 0;
-        for (int i = 0; i < n; i++) {
-            if(check(x,i,visit)){
-                visit[x] = i;
+        for (int y = 0; y < n; y++) {
+            if(check(x,y,visit)){
+                visit[x] = y;
                 cnt += dfs(x+1,n,visit);
             }
         }
         return cnt;
 
     }
-    static boolean check(int x, int y, int[] visit){
-        for (int i = 0; i < x; i++) {
-            if(visit[i] == y) return false;
-            if(x-i == Math.abs(y - visit[i])) return false;
+    static boolean check(int x1, int y1, int[] visit){
+        for (int x2 = 0; x2 < x1; x2++) {
+            int y2 = visit[x2];
+            if(y2 == y1) return false;
+            if(x1-x2 == Math.abs(y1 - y2)) return false;
         }
         return true;
     }
