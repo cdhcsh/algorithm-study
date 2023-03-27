@@ -44,9 +44,9 @@ public class B18111 {
                 answer = time;
                 height = i;
             }
-            bw.write(answer + " " + height);
-            bw.close();
         }
+        bw.write(answer + " " + height);
+        bw.close();
     }
 
 }
