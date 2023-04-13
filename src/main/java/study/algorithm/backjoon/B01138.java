@@ -16,17 +16,21 @@ public class B01138 {
         int[] arr = new int[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            int p = i+1;
-            int c = Integer.parseInt(st.nextToken())+1;
-            int k = 0;
-            do{
-                while(arr[k]==0)k++;
-                c--;
-            }while(c > 0);
-            arr[k] = p;
+            int p = 0;
+            int c = Integer.parseInt(st.nextToken());
+            while(c >= 0){
+                if(arr[p] == 0){
+                    c--;
+                }
+                if(c >= 0){
+                    p++;
+                }
+            }
+            arr[p] = i+1;
         }
         for (int i : arr) {
-            System.out.print(i +" ");
+            bw.write(i+" ");
         }
+        bw.close();
     }
 }
