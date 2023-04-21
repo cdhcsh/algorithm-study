@@ -54,14 +54,13 @@ public class B01030 {
                 int ty = j * size + y;
                 if ((min <= i && max >= i) &&
                         (min <= j && max >= j)) {
-                    fill( tx, ty, size);
+                    fill(tx, ty, size);
                 } else
                     solve(tx, ty, s + 1);
-                }
             }
         }
-
     }
+
 
     static void fill(int x, int y, int size) {
         for (int i = x; i < x + size; i++) {
