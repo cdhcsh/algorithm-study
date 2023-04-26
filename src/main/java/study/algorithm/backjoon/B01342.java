@@ -8,7 +8,6 @@ import java.io.*;
 
 public class B01342 {
     static int[] counts;
-    static int[] set;
     static int N;
     static int answer = 0;
     public static void main(String[] args) throws IOException {
@@ -17,25 +16,22 @@ public class B01342 {
 
         String str = br.readLine();
         N = str.length();
-        set = new int[N];
         counts = new int[26];
         for (int i = 0; i < N; i++) {
             counts[str.charAt(i)-'a']++;
         }
-        dfs(0);
+        dfs(0,-1);
         System.out.println(answer);
 
     }
-    static void dfs(int n ){
+    static void dfs(int n ,int pre){
         if(n == N){
             answer++;
         }
-        int c = (n == 0) ? -1 : set[n-1];
         for (int i = 0; i < 26; i++) {
-            if(counts[i] > 0 && i != c){
+            if(counts[i] > 0 && i != pre){
                 counts[i]--;
-                set[n]=i;
-                dfs(n+1);
+                dfs(n+1,i);
                 counts[i]++;
             }
         }
