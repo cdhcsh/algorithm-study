@@ -24,9 +24,10 @@ public class B28078 {
             String command = st.nextToken();
             if(command.equals("push")){
                 String sub = st.nextToken();
-                if(sub.equals("b"))deque.add(0);
+                if(sub.equals("b") && mode != 3 && !deque.isEmpty()) {
+                    deque.add(0);
+                }
                 else deque.add(1);
-                rotating();
             }else if(command.equals("rotate")){
                 String sub = st.nextToken();
                 if(sub.equals("r")) mode = (mode+1)%4;
