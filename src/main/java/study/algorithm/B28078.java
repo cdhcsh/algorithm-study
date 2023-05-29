@@ -12,6 +12,8 @@ public class B28078 {
     static LinkedList<Integer> deque = new LinkedList() {
     };
     static int mode = 0;
+    static int ballCount = 0;
+    static int wallCount = 0;
     /*
     0 -> 뒤 - 앞 ..1,2,3 시계방향회전
      */
@@ -26,8 +28,12 @@ public class B28078 {
                 String sub = st.nextToken();
                 if(sub.equals("b") && mode != 3 && !deque.isEmpty()) {
                     deque.add(0);
+                    ballCount++;
                 }
-                else deque.add(1);
+                else {
+                    deque.add(1);
+                    wallCount++;
+                }
             }else if(command.equals("rotate")){
                 String sub = st.nextToken();
                 if(sub.equals("r")) mode = (mode+1)%4;
@@ -35,11 +41,14 @@ public class B28078 {
                 rotating();
             } else if (command.equals("count")) {
                 String sub = st.nextToken();
-                if(sub.equals("b")) bw.write(count(0)+"\n");
-                else bw.write(count(1)+"\n");
+                if(sub.equals("b")) bw.write(ballCount+"\n");
+                else bw.write(wallCount+"\n");
             } else if (command.equals("pop")) {
-                deque.poll();
-                rotating();
+                if(!deque.isEmpty()) {
+                    if(deque.poll()==0)ballCount--;
+                    else wallCount--;
+                    rotating();
+                }
             }
         }
         bw.close();
@@ -47,11 +56,13 @@ public class B28078 {
     public static void rotating(){
         if(mode == 1){
             while(!deque.isEmpty() && deque.peek()==0){
+                ballCount--;
                 deque.remove();
             }
         }
         else if (mode == 3){
             while(!deque.isEmpty() && deque.peekLast()==0){
+                ballCount--;
                 deque.removeLast();
             }
         }
