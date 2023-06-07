@@ -1,4 +1,4 @@
-package study.algorithm;
+package study.algorithm.backjoon;
 
 /**
  * 가장 긴 바이토닉 부분 수열

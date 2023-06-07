@@ -1,4 +1,4 @@
-package study.algorithm;
+package study.algorithm.backjoon;
 
 /**
  * 피보나치 수의 확장

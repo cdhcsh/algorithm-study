@@ -1,4 +1,4 @@
-package study.algorithm;
+package study.algorithm.backjoon;
 
 /**
  * 보석도둑

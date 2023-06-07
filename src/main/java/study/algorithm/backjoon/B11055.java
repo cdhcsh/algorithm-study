@@ -1,4 +1,4 @@
-package study.algorithm;
+package study.algorithm.backjoon;
 
 /**
  * 가장 큰 증가하는 부분 수열
