@@ -27,13 +27,13 @@ public class B02468 {
                 max = Math.max(map[i][j], max);
             }
         }
-        for (int i = 1; i <= max; i++) {
+        for (int height = 1; height < max; height++) {
             int count = 0;
             visit = new boolean[N][N];
             for (int x = 0; x < N; x++) {
                 for (int y = 0; y < N; y++) {
-                    if(!visit[x][y] && map[x][y] > i) {
-                        dfs(x,y,i);
+                    if(!visit[x][y] && map[x][y] > height) {
+                        dfs(x,y,height);
                         count++;
                     }
                 }
