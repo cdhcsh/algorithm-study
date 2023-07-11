@@ -1,5 +1,9 @@
 package study.algorithm.backjoon;
 
+/**
+ * 수열의 합
+ */
+
 import java.io.*;
 import java.util.StringTokenizer;
 
@@ -14,12 +18,13 @@ public class B01024 {
         int M;
         int answer = -1;
         while (true) {
-            M = L * (L - 1) / 2;
-            if (M > N) break;
-            if ((N - M) % L == 0) {
-                answer = (N - M) / L;
+            M = N - (L * (L - 1) / 2);
+            if (M < 0 || L > 100) break;
+            if (M % L == 0) {
+                answer = M / L;
                 break;
             }
+            L++;
         }
         if (answer == -1) System.out.println(-1);
         else {
