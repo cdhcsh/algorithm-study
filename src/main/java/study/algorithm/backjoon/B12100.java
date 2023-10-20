@@ -4,14 +4,12 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class B12100 {
-    static int[] check;
+    static int[] check = new int[5];
     static int[][] values;
     static int N;
-    static int answer = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
 
         N = Integer.parseInt(br.readLine());
@@ -22,16 +20,7 @@ public class B12100 {
                 values[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        Node[][] nodes = getNewNodes();
-        move(nodes,0);
-        for (Node node = nodes[0][0]; node != null; node = node.next(2)){
-            for (Node head = node; head != null; head = head.next(0)){
-                bw.write(head.getValue()+" ");
-            }
-            bw.write("\n");
-        }
-
-        bw.close();
+        System.out.println(solve(0));
 
     }
 
@@ -53,13 +42,13 @@ public class B12100 {
     }
 
     public static int solve(int n) {
-        if (N == n) {
+        if (n == 5) {
             return solve();
         }
         int max = 0;
         for (int i = 0; i < 5; i++) {
             check[n] = i - 1;
-            max = Math.max(max, solve(n++));
+            max = Math.max(max, solve(n+1));
         }
         return max;
     }
@@ -72,7 +61,7 @@ public class B12100 {
         int max = 0;
         for (Node node = nodes[0][0]; node != null; node = node.next(0)) {
             for (Node head = node; head != null; head = head.next(2)) {
-                max = Math.max(node.getValue(), max);
+                max = Math.max(head.getValue(), max);
             }
         }
         return max;
@@ -82,35 +71,32 @@ public class B12100 {
     public static void move(Node[][] nodes, int d) {
         if (d < 0) return;
         int k = ((d < 2) ? 2 : 0) + (d % 2);
-        System.out.println(k);
-        System.out.println();
         int m = k % 2 == 0 ? 0 : (N - 1);
         for (Node node = nodes[m][m]; node != null; node = node.next(k)) {
             for (Node head = node; head != null; head = head.next(d)) {
                 if (head.getValue() == 0) continue;
                 Node tmp = head;
                 while (tmp.prev(d) != null && tmp.prev(d).getValue() == 0) {
-                    System.out.println(tmp.value);
                     tmp = tmp.prev(d);
                 }
-                if (tmp.getValue() == 0) {
-                    tmp.setValue(head.getValue());
-                    head.setValue(0);
-                    head = tmp;
-                } else if (tmp.prev(d) != null && tmp.prev(d).getValue() == head.getValue() && tmp.prev(d).isBlock()) {
+                if (tmp.prev(d) != null && tmp.prev(d).getValue() == head.getValue() && tmp.prev(d).isBlock()) {
                     tmp = tmp.prev(d);
                     tmp.setValue(tmp.getValue() * 2);
                     tmp.setBlock(false);
                     head.setValue(0);
                     head = tmp;
+                } else if (tmp.getValue() == 0) {
+                    tmp.setValue(head.getValue());
+                    head.setValue(0);
+                    head = tmp;
                 }
             }
-            System.out.println();
+            for (Node tmp = node; tmp != null; tmp = tmp.next(d)) tmp.setBlock(true);
         }
     }
 
     static class Node {
-        private Node[] connects = new Node[4];
+        private final Node[] connects = new Node[4];
         private int value;
         private boolean block = true;
 
