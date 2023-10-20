@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class B12100 {
-    static int[][] arr;
     static int[] check;
+    static int[][] values;
     static int N;
     static int answer = 0;
 
@@ -15,69 +15,144 @@ public class B12100 {
         StringTokenizer st;
 
         N = Integer.parseInt(br.readLine());
-        arr = new int[N][N];
+        values = new int[N][N];
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
-                arr[i][j] = Integer.parseInt(st.nextToken());
+                values[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        move(1, arr);
-        move(0, arr);
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                bw.write(arr[i][j] + " ");
+        Node[][] nodes = getNewNodes();
+        move(nodes,0);
+        for (Node node = nodes[0][0]; node != null; node = node.next(2)){
+            for (Node head = node; head != null; head = head.next(0)){
+                bw.write(head.getValue()+" ");
             }
             bw.write("\n");
         }
+
         bw.close();
 
     }
 
-    public static void solve(int n) {
-        if (N == n) {
-            answer = 1;
-            return;
+    public static Node[][] getNewNodes() {
+        Node[][] nodes = new Node[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                Node node = new Node(values[i][j]);
+                nodes[i][j] = node;
+                if (i == 0) node.set(3, null);
+                if (i == N - 1) node.set(2, null);
+                if (i > 0) node.connect(3, nodes[i - 1][j]);
+                if (j == 0) node.set(1, null);
+                if (j == N - 1) node.set(0, null);
+                if (j > 0) node.connect(1, nodes[i][j - 1]);
+            }
         }
-        for (int i = 0; i < 4; i++) {
-            check[n] = i;
-            solve(n++);
+        return nodes;
+    }
+
+    public static int solve(int n) {
+        if (N == n) {
+            return solve();
+        }
+        int max = 0;
+        for (int i = 0; i < 5; i++) {
+            check[n] = i - 1;
+            max = Math.max(max, solve(n++));
+        }
+        return max;
+    }
+
+    public static int solve() {
+        Node[][] nodes = getNewNodes();
+        for (int i = 0; i < 5; i++) {
+            move(nodes, check[i]);
+        }
+        int max = 0;
+        for (Node node = nodes[0][0]; node != null; node = node.next(0)) {
+            for (Node head = node; head != null; head = head.next(2)) {
+                max = Math.max(node.getValue(), max);
+            }
+        }
+        return max;
+    }
+
+
+    public static void move(Node[][] nodes, int d) {
+        if (d < 0) return;
+        int k = ((d < 2) ? 2 : 0) + (d % 2);
+        System.out.println(k);
+        System.out.println();
+        int m = k % 2 == 0 ? 0 : (N - 1);
+        for (Node node = nodes[m][m]; node != null; node = node.next(k)) {
+            for (Node head = node; head != null; head = head.next(d)) {
+                if (head.getValue() == 0) continue;
+                Node tmp = head;
+                while (tmp.prev(d) != null && tmp.prev(d).getValue() == 0) {
+                    System.out.println(tmp.value);
+                    tmp = tmp.prev(d);
+                }
+                if (tmp.getValue() == 0) {
+                    tmp.setValue(head.getValue());
+                    head.setValue(0);
+                    head = tmp;
+                } else if (tmp.prev(d) != null && tmp.prev(d).getValue() == head.getValue() && tmp.prev(d).isBlock()) {
+                    tmp = tmp.prev(d);
+                    tmp.setValue(tmp.getValue() * 2);
+                    tmp.setBlock(false);
+                    head.setValue(0);
+                    head = tmp;
+                }
+            }
+            System.out.println();
         }
     }
 
-    //    public static int calc(){
-//        int[][] temp = arr.clone();
-//    }
-    public static void move(int t, int[][] map) {
-        if (t == 0) {
-            for (int i = 0; i < N; i++) {
-                for (int j = 1; j < N; j++) {
-                    if (map[i][j] == 0) {
-                        continue;
-                    } else if (map[i][j] == map[i][j - 1]) {
-                        map[i][j - 1] *= 2;
-                        map[i][j] = 0;
-                    } else {
-                        map[i][j - 1] = map[i][j];
-                        map[i][j] = 0;
-                    }
-                }
-            }
-        } else if (t == 1) {
-            for (int i = 0; i < N; i++) {
-                for (int j = N - 1; j > 0; j--) {
-                    if (map[i][j] == 0) {
-                        map[i][j] = map[i][j - 1];
-                        map[i][j++ - 1] = 0;
-                        continue;
-                    }
-                    if (map[i][j] == map[i][j - 1]) {
-                        map[i][j] *= 2;
-                        map[i][j - 1] = 0;
-                    }
-                }
-            }
+    static class Node {
+        private Node[] connects = new Node[4];
+        private int value;
+        private boolean block = true;
+
+        public Node(int value) {
+            this.value = value;
+        }
+
+        public boolean isBlock() {
+            return block;
+        }
+
+        public void setBlock(boolean block) {
+            this.block = block;
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        public void setValue(int value) {
+            this.value = value;
+        }
+
+        public void set(int d, Node node) {
+            connects[d] = node;
+        }
+
+        public void connect(int d, Node node) {
+            set(d, node);
+            if (node != null) node.set(reverse(d), this);
+        }
+
+        public Node next(int d) {
+            return connects[d];
+        }
+
+        public static int reverse(int d) {
+            return (d >= 2 ? 2 : 0) + (1 - (d % 2));
+        }
+
+        public Node prev(int d) {
+            return connects[reverse(d)];
         }
     }
 }
