@@ -44,15 +44,14 @@ public class B01189 {
             else return 0;
         }
         int result = 0;
+        visit[x][y] = true;
         for (int i = 0; i < 4; i++) {
             int dx = x + D[i][0];
             int dy = y + D[i][1];
-            if (isInRange(dx, dy) && map[dx][dy] && !visit[dx][dy]) {
-                visit[dx][dy] = true;
+            if (isInRange(dx, dy) && map[dx][dy] && !visit[dx][dy])
                 result+=solve(dx,dy,distance+1);
-                visit[dx][dy] = false;
-            }
         }
+        visit[x][y] = false;
         return result;
     }
 
