@@ -1,5 +1,9 @@
 package study.algorithm.backjoon;
 
+/**
+ * 컴백홈
+ */
+
 import java.io.*;
 import java.util.StringTokenizer;
 
@@ -8,11 +12,13 @@ public class B01189 {
     static int C;
     static int K;
 
+    final static int[][] D = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
     static boolean map[][];
     static boolean visit[][];
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         R = Integer.parseInt(st.nextToken());
@@ -24,13 +30,33 @@ public class B01189 {
         for (int i = 0; i < R; i++) {
             char[] s = br.readLine().toCharArray();
             for (int j = 0; j < C; j++) {
-                map[i][j] = s[j] == 'T';
+                map[i][j] = s[j] == '.';
             }
         }
+        System.out.println(solve(R-1,0,1));
 
 
     }
-    public static void solve(int x,int y){
 
+    public static int solve(int x, int y, int distance) {
+        if (x == 0 && y == C - 1) {
+            if (distance == K) return 1;
+            else return 0;
+        }
+        int result = 0;
+        for (int i = 0; i < 4; i++) {
+            int dx = x + D[i][0];
+            int dy = y + D[i][1];
+            if (isInRange(dx, dy) && map[dx][dy] && !visit[dx][dy]) {
+                visit[dx][dy] = true;
+                result+=solve(dx,dy,distance+1);
+                visit[dx][dy] = false;
+            }
+        }
+        return result;
+    }
+
+    public static boolean isInRange(int dx, int dy) {
+        return dx >= 0 && dx < R && dy >= 0 && dy < C;
     }
 }
