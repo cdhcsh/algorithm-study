@@ -1,5 +1,9 @@
 package study.algorithm.backjoon;
 
+/**
+ * 크로스 컨트리
+ */
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
@@ -36,8 +40,14 @@ public class B09017 {
                 team.sequence++;
                 score++;
             }
-            Arrays.sort(teams);
-            bw.write(teams[0].no + "\n");
+            int answer = Arrays.stream(teams).min((o1, o2) -> {
+                if (o1.count < 6) return 1;
+                else if (o2.count < 6) return -1;
+                else if (o1.score == o2.score) return o1.subScore - o2.subScore;
+                return o1.score - o2.score;
+            }).get().no
+            ;
+            bw.write(answer + "\n");
         }
         bw.close();
     }
