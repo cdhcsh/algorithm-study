@@ -1,48 +1,41 @@
 package study.algorithm.backjoon;
 
+/**
+ * 주식
+ */
+
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class B11501 {
     public static void main(String[] args) throws IOException {
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//        StringTokenizer st = new StringTokenizer(br.readLine());
-        Card base = new Card(1);
-        base.count+=1;
-        Card one = new Card(1);
-        Card two = new Card(2);
-        base = one.h(base);
-        base.print();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
+
+        int T = Integer.parseInt(br.readLine());
+        for (int t = 0; t < T; t++) {
+            int n = Integer.parseInt(br.readLine());
+            st = new StringTokenizer(br.readLine());
+            bw.write(solve(n, st) + "\n");
+        }
+        bw.close();
     }
-    static class Card {
-        int t;
 
-        public Card(int t) {
-            this.t = t;
+    public static long solve(int n, StringTokenizer st) {
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-
-        int count = 0;
-
-        public Card h(Card card){
-            int temp = card.j(t);
-            if(t==1) temp+=card.t;
-            this.count = temp;
-            return this;
+        int max = 0;
+        long answer = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (arr[i] < max) {
+                answer += (max - arr[i]);
+            }
+            else max = arr[i];
         }
-
-        public int j(int t){
-            return (this.count+1) * t * this.t;
-        }
-
-        public void print(){
-            int s = 1 + count;
-            int d = 1 + (count-1)/3;
-            System.out.println("==================================");
-            System.out.println("Stat : +" + s + "/+" + s + ", spell damage (" + d + ")");
-            System.out.println("count : " + count);
-            System.out.println("==================================");
-        }
+        return answer;
     }
+
 }
